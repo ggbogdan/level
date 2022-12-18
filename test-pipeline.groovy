@@ -7,11 +7,11 @@ node {
                 $class: 'GitSCM',
                 userRemoteConfigs: [
                         [
-                                url: "https://bitbucket.org/xxxxxx/performance-test-repo.git",
-                                credentialsId: "octoperf-user"
+                                url: "https://github.com/ggbogdan/level.git",
+                                credentialsId: "github-user"
                         ]
                 ],
-                branches: [[name: "master"]]
+                branches: [[name: "main"]]
         ], poll: false
     }
 
