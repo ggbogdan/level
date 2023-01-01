@@ -23,7 +23,7 @@ node {
     stage('Execute Performance Tests') {
         dir("${WORKSPACE}") {
             sh "/usr/jmeter/bin/jmeter.sh -n -t $SCRIPT_PATH -Jusers=$USERS -JrampUp=$RAMP_UP -Jloop=$LOOP -l test.jtl -e -o report -f"
-            sh "su - jenkins" 
+//             sh "su - jenkins" 
             sh "cp WORKSPACE/report/ ./opt/tomcat/webapps/report/" 
 //             sh "mkdir -p /opt/tomcat/webapps/report" 
         }
