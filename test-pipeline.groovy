@@ -24,7 +24,7 @@ node {
         dir("${WORKSPACE}") {
             sh "/usr/jmeter/bin/jmeter.sh -n -t $SCRIPT_PATH -Jusers=$USERS -JrampUp=$RAMP_UP -Jloop=$LOOP -l test.jtl -e -o report -f"
 //             sh "su - jenkins" 
-            sh "cp /var/lib/jenkins/workspace/test2/report/ ./opt/tomcat/webapps/report/" 
+            sh "cp -r /var/lib/jenkins/workspace/test2/report/ ./opt/tomcat/webapps/report/" 
 //             sh "mkdir -p /opt/tomcat/webapps/report" 
         }
     }
