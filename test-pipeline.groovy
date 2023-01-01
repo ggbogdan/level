@@ -23,9 +23,8 @@ node {
     stage('Execute Performance Tests') {
         dir("${WORKSPACE}") {
             sh "/usr/jmeter/bin/jmeter.sh -n -t $SCRIPT_PATH -Jusers=$USERS -JrampUp=$RAMP_UP -Jloop=$LOOP -l test.jtl -e -o report -f"
-//             sh "su - jenkins" 
             sh "sudo cp -r /var/lib/jenkins/workspace/test2/report/ /opt/tomcat/webapps/" 
-//             sh "mkdir -p /opt/tomcat/webapps/report" 
+
         }
     }
     step([$class: 'ArtifactArchiver', artifacts: 'test.jtl'])
