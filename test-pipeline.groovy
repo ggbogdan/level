@@ -27,16 +27,7 @@ node {
 
         }
     }  
-//     stage('Send e-mail') {
-//     post
-//         {
-//         always{
-//             mail to: "fortestjenkins@ukr.net",
-//             subject: "Test Email",
-//             body: "Test"
-//                }
-//          }
-//     }
+
     step([$class: 'ArtifactArchiver', artifacts: 'test.jtl'])
     
 
@@ -55,7 +46,7 @@ pipeline {
             mail to: "fortestjenkins@ukr.net",
                from: "fortestjenkins@ukr.net",
             subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
-               body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}"
+               body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL} and here: http://192.168.56.102:8080/report/"
              }
         }
 }
