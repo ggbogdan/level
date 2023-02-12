@@ -29,6 +29,23 @@ node {
     }
     step([$class: 'ArtifactArchiver', artifacts: 'test.jtl'])
     
+//     post{
+//         always{
+//             mail to: "fortestjenkins@ukr.net",
+//             subject: "Test Email",
+//             body: "Test"
+//         }
+//     }
+}
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                echo "Hello world"
+                    }
+            }
+        }
     post{
         always{
             mail to: "fortestjenkins@ukr.net",
