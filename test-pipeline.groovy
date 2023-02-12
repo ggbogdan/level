@@ -27,12 +27,15 @@ node {
 
         }
     }  
-    post('Send e-mail'){
+    stage('Send e-mail') {
+    post
+        {
         always{
             mail to: "fortestjenkins@ukr.net",
             subject: "Test Email",
             body: "Test"
-        }
+               }
+         }
     }
     step([$class: 'ArtifactArchiver', artifacts: 'test.jtl'])
     
