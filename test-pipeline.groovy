@@ -53,6 +53,7 @@ pipeline {
     post{
         always{
             mail to: "fortestjenkins@ukr.net",
+               from: "fortestjenkins@ukr.net",
             subject: "Test Email",
             body: "Test"
         }
