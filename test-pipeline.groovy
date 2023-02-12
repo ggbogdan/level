@@ -45,18 +45,26 @@ pipeline {
     agent any
     stages {
         stage('Hello') {
-            steps {
-                echo "Hello world"
-                    }
+//             steps {
+//                 echo "Hello world"
+//                     }
+                post{
+                  always{
+                   mail to: "fortestjenkins@ukr.net",
+                      from: "fortestjenkins@ukr.net",
+                   subject: "Test Email",
+                      body: "Test"
+                        }
+                   }   
             }
         }
-    post{
-        always{
-            mail to: "fortestjenkins@ukr.net",
-               from: "fortestjenkins@ukr.net",
-            subject: "Test Email",
-            body: "Test"
-        }
-    }
+//     post{
+//         always{
+//             mail to: "fortestjenkins@ukr.net",
+//                from: "fortestjenkins@ukr.net",
+//             subject: "Test Email",
+//             body: "Test"
+//         }
+//     }
 }
 
