@@ -26,9 +26,27 @@ node {
             sh "sudo cp -r /var/lib/jenkins/workspace/test2/report/ /opt/tomcat/webapps/"
 
         }
+    }  
+    post('Send e-mail'){
+        always{
+            mail to: "fortestjenkins@ukr.net",
+            subject: "Test Email",
+            body: "Test"
+        }
     }
     step([$class: 'ArtifactArchiver', artifacts: 'test.jtl'])
     
+
+}
+// pipeline {
+//     agent any
+//     stages {
+//         stage('Hello') {
+//             steps {
+//                 echo "Hello world"
+//                     }
+//             }
+//         }
 //     post{
 //         always{
 //             mail to: "fortestjenkins@ukr.net",
@@ -36,21 +54,4 @@ node {
 //             body: "Test"
 //         }
 //     }
-}
-pipeline {
-    agent any
-    stages {
-        stage('Hello') {
-            steps {
-                echo "Hello world"
-                    }
-            }
-        }
-    post{
-        always{
-            mail to: "fortestjenkins@ukr.net",
-            subject: "Test Email",
-            body: "Test"
-        }
-    }
-}
+// }
