@@ -45,7 +45,7 @@ pipeline
         always {
             mail to: "fortestjenkins@ukr.net",
                from: "fortestjenkins@ukr.net",
-            subject: "jenkins test:${currentBuild.currentResult}: ${env.JOB_NAME}",
+            subject: "jenkins test status:${currentBuild.currentResult}: ${env.JOB_NAME}",
                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL} and here: http://192.168.56.102:8080/report/"
               }
         }
